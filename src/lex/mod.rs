@@ -5,8 +5,8 @@ mod token;
 
 use crate::{
     all_consuming, alt, char, fold_many0, is_line, is_not_boundary, is_not_double_quote,
-    is_not_line, is_numeric, is_whitesapce, map, not, opt, tag, take_while, take_while1, tuple,
-    value, Boolean, Datetime, Encoding, Flavor, Scalar,
+    is_not_line, is_numeric, is_whitesapce, map, not, opt, tag, tag_no_case, take_while,
+    take_while1, tuple, value, Boolean, Datetime, Encoding, Flavor, Scalar,
 };
 pub use error::*;
 pub use token::*;
@@ -30,15 +30,16 @@ pub fn lex(source: &str) -> Result<Tokens, LexError> {
 
 fn lex_flavor(source: &str) -> LexResult<Flavor> {
     alt((
-        map(tag("ck3"), |_| Flavor::Ck3),
-        map(tag("eu4"), |_| Flavor::Eu4),
+        map(tag_no_case("ck3"), |_| Flavor::Ck3),
+        map(tag_no_case("eu4"), |_| Flavor::Eu4),
     ))(source)
 }
 
 fn lex_encoding(source: &str) -> LexResult<Encoding> {
     alt((
-        map(tag("text"), |_| Encoding::Text),
-        map(tag("binary"), |_| Encoding::Binary),
+        map(tag_no_case("txt"), |_| Encoding::Text),
+        map(tag_no_case("text"), |_| Encoding::Text),
+        map(tag_no_case("binary"), |_| Encoding::Binary),
     ))(source)
 }
 
