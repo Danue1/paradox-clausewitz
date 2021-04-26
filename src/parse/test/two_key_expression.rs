@@ -29,6 +29,6 @@ fn scalar_list_and_scalar_list() {
                 }),
             ]
         }),
-        parse(lex("ck3text\nfoo=bar baz=bax").unwrap())
+        parse(lex(b"ck3text\nfoo=bar baz=bax").unwrap())
     );
 }

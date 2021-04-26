@@ -11,7 +11,7 @@ fn scalar() {
                 is_variable: false
             })]
         }),
-        parse(lex("ck3text\nfoo").unwrap())
+        parse(lex(b"ck3text\nfoo").unwrap())
     );
 }
 
@@ -29,7 +29,7 @@ fn parent_scalar() {
                 is_variable: false
             })]
         }),
-        parse(lex("ck3text\nfoo:bar").unwrap())
+        parse(lex(b"ck3text\nfoo:bar").unwrap())
     );
 }
 
@@ -47,7 +47,7 @@ fn field_scalar() {
                 is_variable: false
             })]
         }),
-        parse(lex("ck3text\nfoo.bar").unwrap())
+        parse(lex(b"ck3text\nfoo.bar").unwrap())
     );
 }
 
@@ -62,7 +62,7 @@ fn variable() {
                 is_variable: true
             })]
         }),
-        parse(lex("ck3text\n@foo").unwrap())
+        parse(lex(b"ck3text\n@foo").unwrap())
     );
 }
 
@@ -80,7 +80,7 @@ fn parent_variable() {
                 is_variable: true
             })]
         }),
-        parse(lex("ck3text\n@foo:bar").unwrap())
+        parse(lex(b"ck3text\n@foo:bar").unwrap())
     );
 }
 
@@ -98,6 +98,6 @@ fn field_variable() {
                 is_variable: true
             })]
         }),
-        parse(lex("ck3text\n@foo.bar").unwrap())
+        parse(lex(b"ck3text\n@foo.bar").unwrap())
     );
 }

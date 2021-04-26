@@ -8,24 +8,24 @@ macro_rules! eof {
 
 #[test]
 fn yes() {
-    assert_eq!(Ok(("", Boolean::Yes)), lex_boolean("yes"));
-    assert_eq!(Err(eof!()), lex_boolean("yesa"));
+    assert_eq!(Ok(("".as_bytes(), Boolean::Yes)), lex_boolean(b"yes"));
+    assert_eq!(Err(eof!()), lex_boolean(b"yesa"));
 }
 
 #[test]
 fn no() {
-    assert_eq!(Ok(("", Boolean::No)), lex_boolean("no"));
-    assert_eq!(Err(eof!()), lex_boolean("noa"));
+    assert_eq!(Ok(("".as_bytes(), Boolean::No)), lex_boolean(b"no"));
+    assert_eq!(Err(eof!()), lex_boolean(b"noa"));
 }
 
 #[test]
 fn r#true() {
-    assert_eq!(Ok(("", Boolean::True)), lex_boolean("true"));
-    assert_eq!(Err(eof!()), lex_boolean("truea"));
+    assert_eq!(Ok(("".as_bytes(), Boolean::True)), lex_boolean(b"true"));
+    assert_eq!(Err(eof!()), lex_boolean(b"truea"));
 }
 
 #[test]
 fn r#false() {
-    assert_eq!(Ok(("", Boolean::False)), lex_boolean("false"));
-    assert_eq!(Err(eof!()), lex_boolean("falsea"));
+    assert_eq!(Ok(("".as_bytes(), Boolean::False)), lex_boolean(b"false"));
+    assert_eq!(Err(eof!()), lex_boolean(b"falsea"));
 }

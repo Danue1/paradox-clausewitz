@@ -18,7 +18,7 @@ fn scalar_to_scalar() {
                 }))]
             })]
         }),
-        parse(lex("ck3text\nfoo={bar}").unwrap())
+        parse(lex(b"ck3text\nfoo={bar}").unwrap())
     );
 }
 
@@ -46,7 +46,7 @@ fn scalar_to_scalar_and_scalar() {
                 ]
             })]
         }),
-        parse(lex("ck3text\nfoo={bar baz}").unwrap())
+        parse(lex(b"ck3text\nfoo={bar baz}").unwrap())
     );
 }
 
@@ -74,7 +74,7 @@ fn scalar_to_scalar_and_variable() {
                 ]
             })]
         }),
-        parse(lex("ck3text\nfoo={bar @baz}").unwrap())
+        parse(lex(b"ck3text\nfoo={bar @baz}").unwrap())
     );
 }
 
@@ -96,7 +96,7 @@ fn scalar_to_variable() {
                 }))]
             })]
         }),
-        parse(lex("ck3text\nfoo={@bar}").unwrap())
+        parse(lex(b"ck3text\nfoo={@bar}").unwrap())
     );
 }
 
@@ -124,7 +124,7 @@ fn scalar_to_variable_and_scalar() {
                 ]
             })]
         }),
-        parse(lex("ck3text\nfoo={@bar baz}").unwrap())
+        parse(lex(b"ck3text\nfoo={@bar baz}").unwrap())
     );
 }
 
@@ -152,7 +152,7 @@ fn scalar_to_variable_and_variable() {
                 ]
             })]
         }),
-        parse(lex("ck3text\nfoo={@bar @baz}").unwrap())
+        parse(lex(b"ck3text\nfoo={@bar @baz}").unwrap())
     );
 }
 
@@ -174,7 +174,7 @@ fn variable_to_scalar() {
                 }))]
             })]
         }),
-        parse(lex("ck3text\n@foo={bar}").unwrap())
+        parse(lex(b"ck3text\n@foo={bar}").unwrap())
     );
 }
 
@@ -202,7 +202,7 @@ fn variable_to_scalar_and_scalar() {
                 ]
             })]
         }),
-        parse(lex("ck3text\n@foo={bar baz}").unwrap())
+        parse(lex(b"ck3text\n@foo={bar baz}").unwrap())
     );
 }
 
@@ -230,7 +230,7 @@ fn variable_to_scalar_and_variable() {
                 ]
             })]
         }),
-        parse(lex("ck3text\n@foo={bar @baz}").unwrap())
+        parse(lex(b"ck3text\n@foo={bar @baz}").unwrap())
     );
 }
 
@@ -252,7 +252,7 @@ fn variable_to_variable() {
                 }))]
             })]
         }),
-        parse(lex("ck3text\n@foo={@bar}").unwrap())
+        parse(lex(b"ck3text\n@foo={@bar}").unwrap())
     );
 }
 
@@ -280,7 +280,7 @@ fn variable_to_variable_and_scalar() {
                 ]
             })]
         }),
-        parse(lex("ck3text\n@foo={@bar baz}").unwrap())
+        parse(lex(b"ck3text\n@foo={@bar baz}").unwrap())
     );
 }
 
@@ -308,6 +308,6 @@ fn variable_to_variable_and_variable() {
                 ]
             })]
         }),
-        parse(lex("ck3text\n@foo={@bar @baz}").unwrap())
+        parse(lex(b"ck3text\n@foo={@bar @baz}").unwrap())
     );
 }

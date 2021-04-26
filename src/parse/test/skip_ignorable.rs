@@ -8,6 +8,6 @@ fn skip_ignorable() {
             encoding: Encoding::Text,
             value_list: vec![]
         }),
-        parse(lex("ck3text\n}").unwrap())
+        parse(lex(b"ck3text\n}").unwrap())
     );
 }

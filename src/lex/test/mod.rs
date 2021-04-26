@@ -19,7 +19,7 @@ fn header_only() {
             encoding: Encoding::Text,
             token_list: vec![]
         }),
-        lex("ck3text")
+        lex(b"ck3text")
     )
 }
 
@@ -31,7 +31,7 @@ fn header_with_key() {
             encoding: Encoding::Text,
             token_list: vec![Token::Scalar(Scalar::Ident("key".to_owned()))]
         }),
-        lex("ck3text\nkey")
+        lex(b"ck3text\nkey")
     )
 }
 
@@ -47,6 +47,6 @@ fn header_with_key_and_value() {
                 Token::Scalar(Scalar::Ident("value".to_owned()))
             ]
         }),
-        lex("ck3text\nkey=value")
+        lex(b"ck3text\nkey=value")
     )
 }

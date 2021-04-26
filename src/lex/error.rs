@@ -9,12 +9,12 @@ pub enum LexError {
     UnknownEncoding(String),
 }
 
-impl<'lex> ParseError<&'lex str> for LexError {
-    fn from_error_kind(_: &'lex str, kind: ErrorKind) -> Self {
+impl<'lex> ParseError<&'lex [u8]> for LexError {
+    fn from_error_kind(_: &'lex [u8], kind: ErrorKind) -> Self {
         LexError::Nom(kind)
     }
 
-    fn append(_: &'lex str, _: ErrorKind, other: Self) -> Self {
+    fn append(_: &'lex [u8], _: ErrorKind, other: Self) -> Self {
         other
     }
 }

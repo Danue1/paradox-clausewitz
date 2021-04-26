@@ -17,6 +17,6 @@ fn scalar_and_scalar() {
                 })
             ]
         }),
-        parse(lex("ck3text\nfoo bar").unwrap())
+        parse(lex(b"ck3text\nfoo bar").unwrap())
     );
 }
