@@ -12,10 +12,10 @@ fn scalar_to_scalar() {
                     is_variable: false
                 },
                 tag: None,
-                expression_list: vec![Expression::Key(Key {
+                expression_list: vec![Expression::Value(Value::Key(Key {
                     path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                     is_variable: false
-                })]
+                }))]
             })]
         }),
         parse(lex("ck3text\nfoo={bar}").unwrap())
@@ -35,14 +35,14 @@ fn scalar_to_scalar_and_scalar() {
                 },
                 tag: None,
                 expression_list: vec![
-                    Expression::Key(Key {
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: false
-                    }),
-                    Expression::Key(Key {
+                    })),
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("baz".to_owned())),
                         is_variable: false
-                    })
+                    }))
                 ]
             })]
         }),
@@ -63,14 +63,14 @@ fn scalar_to_scalar_and_variable() {
                 },
                 tag: None,
                 expression_list: vec![
-                    Expression::Key(Key {
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: false
-                    }),
-                    Expression::Key(Key {
+                    })),
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("baz".to_owned())),
                         is_variable: true
-                    })
+                    }))
                 ]
             })]
         }),
@@ -90,10 +90,10 @@ fn scalar_to_variable() {
                     is_variable: false
                 },
                 tag: None,
-                expression_list: vec![Expression::Key(Key {
+                expression_list: vec![Expression::Value(Value::Key(Key {
                     path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                     is_variable: true
-                })]
+                }))]
             })]
         }),
         parse(lex("ck3text\nfoo={@bar}").unwrap())
@@ -113,14 +113,14 @@ fn scalar_to_variable_and_scalar() {
                 },
                 tag: None,
                 expression_list: vec![
-                    Expression::Key(Key {
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: true
-                    }),
-                    Expression::Key(Key {
+                    })),
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("baz".to_owned())),
                         is_variable: false
-                    })
+                    }))
                 ]
             })]
         }),
@@ -141,14 +141,14 @@ fn scalar_to_variable_and_variable() {
                 },
                 tag: None,
                 expression_list: vec![
-                    Expression::Key(Key {
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: true
-                    }),
-                    Expression::Key(Key {
+                    })),
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("baz".to_owned())),
                         is_variable: true
-                    })
+                    }))
                 ]
             })]
         }),
@@ -168,10 +168,10 @@ fn variable_to_scalar() {
                     is_variable: true
                 },
                 tag: None,
-                expression_list: vec![Expression::Key(Key {
+                expression_list: vec![Expression::Value(Value::Key(Key {
                     path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                     is_variable: false
-                })]
+                }))]
             })]
         }),
         parse(lex("ck3text\n@foo={bar}").unwrap())
@@ -191,14 +191,14 @@ fn variable_to_scalar_and_scalar() {
                 },
                 tag: None,
                 expression_list: vec![
-                    Expression::Key(Key {
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: false
-                    }),
-                    Expression::Key(Key {
+                    })),
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("baz".to_owned())),
                         is_variable: false
-                    })
+                    }))
                 ]
             })]
         }),
@@ -219,14 +219,14 @@ fn variable_to_scalar_and_variable() {
                 },
                 tag: None,
                 expression_list: vec![
-                    Expression::Key(Key {
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: false
-                    }),
-                    Expression::Key(Key {
+                    })),
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("baz".to_owned())),
                         is_variable: true
-                    })
+                    }))
                 ]
             })]
         }),
@@ -246,10 +246,10 @@ fn variable_to_variable() {
                     is_variable: true
                 },
                 tag: None,
-                expression_list: vec![Expression::Key(Key {
+                expression_list: vec![Expression::Value(Value::Key(Key {
                     path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                     is_variable: true
-                })]
+                }))]
             })]
         }),
         parse(lex("ck3text\n@foo={@bar}").unwrap())
@@ -269,14 +269,14 @@ fn variable_to_variable_and_scalar() {
                 },
                 tag: None,
                 expression_list: vec![
-                    Expression::Key(Key {
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: true
-                    }),
-                    Expression::Key(Key {
+                    })),
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("baz".to_owned())),
                         is_variable: false
-                    })
+                    }))
                 ]
             })]
         }),
@@ -297,14 +297,14 @@ fn variable_to_variable_and_variable() {
                 },
                 tag: None,
                 expression_list: vec![
-                    Expression::Key(Key {
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: true
-                    }),
-                    Expression::Key(Key {
+                    })),
+                    Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("baz".to_owned())),
                         is_variable: true
-                    })
+                    }))
                 ]
             })]
         }),

@@ -164,11 +164,11 @@ impl Context {
                 self.consume();
 
                 let scalar = match expression {
-                    Some(Expression::Key(Key {
+                    Some(Expression::Value(Value::Key(Key {
                         path: Path::Scalar(scalar),
                         is_variable: false,
-                    })) => Some(scalar),
-                    Some(Expression::Key(_)) | Some(Expression::Binary(..)) => {
+                    }))) => Some(scalar),
+                    Some(Expression::Value(Value::Key(_))) | Some(Expression::Binary(..)) => {
                         return invalid_syntax!()
                     }
                     _ => None,
@@ -214,7 +214,7 @@ impl Context {
                     Some(Token::Symbol(Symbol::RightBrace))
                     | Some(Token::Symbol(Symbol::At))
                     | Some(Token::Scalar(_))
-                    | None => return Ok(Some(Expression::Key(key))),
+                    | None => return Ok(Some(Expression::Value(Value::Key(key)))),
                     Some(Token::Symbol(symbol)) => return unexpected_symbol!(symbol.to_owned()),
                 };
 

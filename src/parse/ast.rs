@@ -70,7 +70,7 @@ pub enum Path {
 #[derive(Debug, PartialEq)]
 pub enum Expression {
     // foo
-    Key(Key),
+    Value(Value),
     // foo < bar
     Binary(Key, Operator, Key),
 }

@@ -11,10 +11,10 @@ fn scalar_to_scalar() {
                     path: Path::Scalar(Scalar::Ident("foo".to_owned())),
                     is_variable: false
                 },
-                expression: Box::new(Expression::Key(Key {
+                expression: Box::new(Expression::Value(Value::Key(Key {
                     path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                     is_variable: false
-                }))
+                })))
             })]
         }),
         parse(lex("ck3text\nfoo=bar").unwrap())
@@ -32,10 +32,10 @@ fn scalar_to_variable() {
                     path: Path::Scalar(Scalar::Ident("foo".to_owned())),
                     is_variable: false
                 },
-                expression: Box::new(Expression::Key(Key {
+                expression: Box::new(Expression::Value(Value::Key(Key {
                     path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                     is_variable: true
-                }))
+                })))
             })]
         }),
         parse(lex("ck3text\nfoo=@bar").unwrap())
@@ -53,10 +53,10 @@ fn variable_to_scalar() {
                     path: Path::Scalar(Scalar::Ident("foo".to_owned())),
                     is_variable: true
                 },
-                expression: Box::new(Expression::Key(Key {
+                expression: Box::new(Expression::Value(Value::Key(Key {
                     path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                     is_variable: false
-                }))
+                })))
             })]
         }),
         parse(lex("ck3text\n@foo=bar").unwrap())
@@ -74,10 +74,10 @@ fn variable_to_variable() {
                     path: Path::Scalar(Scalar::Ident("foo".to_owned())),
                     is_variable: true
                 },
-                expression: Box::new(Expression::Key(Key {
+                expression: Box::new(Expression::Value(Value::Key(Key {
                     path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                     is_variable: true
-                }))
+                })))
             })]
         }),
         parse(lex("ck3text\n@foo=@bar").unwrap())

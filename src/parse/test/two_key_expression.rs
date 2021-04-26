@@ -12,20 +12,20 @@ fn scalar_list_and_scalar_list() {
                         path: Path::Scalar(Scalar::Ident("foo".to_owned())),
                         is_variable: false
                     },
-                    expression: Box::new(Expression::Key(Key {
+                    expression: Box::new(Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: false
-                    }))
+                    })))
                 }),
                 Value::KeyExpression(KeyExpression {
                     key: Key {
                         path: Path::Scalar(Scalar::Ident("baz".to_owned())),
                         is_variable: false
                     },
-                    expression: Box::new(Expression::Key(Key {
+                    expression: Box::new(Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bax".to_owned())),
                         is_variable: false
-                    }))
+                    })))
                 }),
             ]
         }),

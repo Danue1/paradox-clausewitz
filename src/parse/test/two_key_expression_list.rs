@@ -13,10 +13,10 @@ fn scalar_to_scalar_list_and_scalar_to_scalar_list() {
                         is_variable: false,
                     },
                     tag: None,
-                    expression_list: vec![Expression::Key(Key {
+                    expression_list: vec![Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bar".to_owned())),
                         is_variable: false,
-                    })],
+                    }))],
                 }),
                 Value::KeyExpressionList(KeyExpressionList {
                     key: Key {
@@ -24,10 +24,10 @@ fn scalar_to_scalar_list_and_scalar_to_scalar_list() {
                         is_variable: false,
                     },
                     tag: None,
-                    expression_list: vec![Expression::Key(Key {
+                    expression_list: vec![Expression::Value(Value::Key(Key {
                         path: Path::Scalar(Scalar::Ident("bax".to_owned())),
                         is_variable: false,
-                    })],
+                    }))],
                 }),
             ],
         }),
